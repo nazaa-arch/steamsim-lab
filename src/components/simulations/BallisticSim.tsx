@@ -291,7 +291,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
       </div>
 
       {/* Control Panel (Sidebar) */}
-      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-xl">
+      <div className="lg:col-span-4 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col justify-between shadow-sm">
         <div className="space-y-4">
           <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
             <Gauge className="w-4 h-4 text-blue-600" />
@@ -381,7 +381,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
         </div>
 
         {/* VeriLab Integration Banner */}
-        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-200 space-y-1.5">
+        <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
           <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-bold font-mono">
             <Zap className="w-3.5 h-3.5" />
             Sinergi VeriLab AI Metrology

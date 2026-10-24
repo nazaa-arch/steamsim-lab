@@ -38,25 +38,25 @@ export function App() {
           <div className="flex md:hidden items-center gap-1 overflow-x-auto pb-1 text-[11px]">
             <button
               onClick={() => setCurrentMode('ballistics')}
-              className={`px-2.5 py-1 rounded-lg ${currentMode === 'ballistics' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-800 text-slate-300'}`}
+              className={`px-2.5 py-1 rounded-lg ${currentMode === 'ballistics' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               Proyektil
             </button>
             <button
               onClick={() => setCurrentMode('oscillator')}
-              className={`px-2.5 py-1 rounded-lg ${currentMode === 'oscillator' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-800 text-slate-300'}`}
+              className={`px-2.5 py-1 rounded-lg ${currentMode === 'oscillator' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               Osilator
             </button>
             <button
               onClick={() => setCurrentMode('titration')}
-              className={`px-2.5 py-1 rounded-lg ${currentMode === 'titration' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-800 text-slate-300'}`}
+              className={`px-2.5 py-1 rounded-lg ${currentMode === 'titration' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               Titrasi
             </button>
             <button
               onClick={() => setCurrentMode('chaos')}
-              className={`px-2.5 py-1 rounded-lg ${currentMode === 'chaos' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-800 text-slate-300'}`}
+              className={`px-2.5 py-1 rounded-lg ${currentMode === 'chaos' ? 'bg-blue-600 text-white font-semibold' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
             >
               Chaos
             </button>

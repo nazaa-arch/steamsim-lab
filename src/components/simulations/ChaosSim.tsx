@@ -210,7 +210,7 @@ export const ChaosSim: React.FC = () => {
       </div>
 
       {/* Sliders */}
-      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-xl">
+      <div className="lg:col-span-4 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col justify-between shadow-sm">
         <div className="space-y-4">
           <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
             <Orbit className="w-4 h-4 text-blue-600" />
@@ -280,7 +280,7 @@ export const ChaosSim: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-200 space-y-1.5 text-xs text-slate-500">
+        <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs text-slate-500">
           <div className="font-mono text-slate-800 font-semibold text-[11px]">Butterfly Effect:</div>
           <p className="text-[11px] leading-relaxed">
             Perubahan sekecil 0.001 radian pada posisi awal akan menghasilkan trajektori akhir yang sama sekali berbeda dalam beberapa detik.

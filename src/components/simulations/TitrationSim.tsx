@@ -198,13 +198,13 @@ export const TitrationSim: React.FC = () => {
               height={320}
               className="w-full h-full block"
             />
-            <div className="absolute top-2 right-2 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono text-pink-300 border border-pink-500/20">
+            <div className="absolute top-2 right-2 bg-white backdrop-blur-md px-2.5 py-1 rounded text-[10px] font-mono text-pink-300 border border-pink-500/20">
               Daerah Indikator PP (pH 8.2 - 10)
             </div>
           </div>
 
           {/* Visual Beaker Container (3 cols) */}
-          <div className="sm:col-span-3 bg-slate-950/70 rounded-xl border border-slate-200 p-4 flex flex-col items-center justify-between">
+          <div className="sm:col-span-3 bg-slate-50 rounded-xl border border-slate-200 p-4 flex flex-col items-center justify-between">
             <div className="text-center">
               <span className="text-[10px] font-mono text-slate-500 uppercase">Warna Larutan</span>
               <div className="text-xl font-black font-mono text-slate-900 mt-1">pH {currentPH}</div>
@@ -252,7 +252,7 @@ export const TitrationSim: React.FC = () => {
       </div>
 
       {/* Sliders & Controls */}
-      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-xl">
+      <div className="lg:col-span-4 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col justify-between shadow-sm">
         <div className="space-y-4">
           <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
             <Beaker className="w-4 h-4 text-blue-600" />
@@ -269,7 +269,7 @@ export const TitrationSim: React.FC = () => {
                 className={`py-2 rounded-xl text-xs font-bold transition-all ${
                   params.acidType === 'weak'
                     ? 'bg-cyan-600 text-slate-900 shadow'
-                    : 'bg-slate-800 text-slate-500 hover:text-slate-900'
+                    : 'bg-slate-100 text-slate-700 text-slate-500 hover:text-slate-900'
                 }`}
               >
                 Asam Lemah (CH₃COOH)
@@ -279,7 +279,7 @@ export const TitrationSim: React.FC = () => {
                 className={`py-2 rounded-xl text-xs font-bold transition-all ${
                   params.acidType === 'strong'
                     ? 'bg-cyan-600 text-slate-900 shadow'
-                    : 'bg-slate-800 text-slate-500 hover:text-slate-900'
+                    : 'bg-slate-100 text-slate-700 text-slate-500 hover:text-slate-900'
                 }`}
               >
                 Asam Kuat (HCl)
@@ -337,12 +337,12 @@ export const TitrationSim: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-200 space-y-1.5 text-xs">
+        <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 text-xs">
           <div className="flex items-center gap-1.5 text-emerald-400 font-mono font-bold text-[11px]">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Persamaan Henderson-Hasselbalch:
           </div>
-          <div className="p-2 rounded bg-slate-900 border border-slate-200 font-mono text-[11px] text-cyan-300 text-center">
+          <div className="p-2 rounded bg-white border border-slate-200 font-mono text-[11px] text-cyan-300 text-center">
             pH = pKa + log([A⁻] / [HA])
           </div>
         </div>

@@ -75,7 +75,7 @@ export const VeriLabExportModal: React.FC<VeriLabExportModalProps> = ({
             <span className="font-mono text-cyan-400 text-[11px]">&Delta;t = 0.01 detik</span>
           </div>
 
-          <div className="bg-slate-950 p-3 rounded-xl border border-slate-200 font-mono text-xs text-slate-300 max-h-48 overflow-y-auto space-y-1">
+          <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 font-mono text-xs text-slate-300 max-h-48 overflow-y-auto space-y-1">
             <div className="text-slate-500 pb-1 border-b border-slate-200 flex justify-between">
               <span>t (s)</span>
               <span>X (m)</span>
@@ -113,7 +113,7 @@ export const VeriLabExportModal: React.FC<VeriLabExportModalProps> = ({
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               onClick={copyToClipboard}
-              className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              className="flex-1 sm:flex-initial px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               {copied ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copied ? 'Tersalin!' : 'Salin CSV'}</span>
