@@ -108,7 +108,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
     ctx.clearRect(0, 0, width, height);
 
     // Coordinate grid
-    ctx.strokeStyle = '#f1f5f9';
+    ctx.strokeStyle = '#e2e8f0';
     ctx.lineWidth = 1;
     const step = 40;
     for (let x = 0; x < width; x += step) {
@@ -231,7 +231,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
       <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <Compass className="w-4 h-4 text-blue-600" />
+            <Compass className="w-4 h-4 text-blue-700 font-bold" />
             <h3 className="font-bold text-sm text-slate-900">Trajektori Gerak Proyektil (Aerodinamika Kuadratik)</h3>
           </div>
           <div className="flex items-center gap-2">
@@ -272,20 +272,20 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
         {/* Real-time Computed Metrics Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
           <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-[10px] font-mono text-slate-500 uppercase">Jarak Jangkauan (R)</div>
-            <div className="text-lg font-bold font-mono text-blue-600 mt-0.5">{metrics.maxRange} m</div>
+            <div className="text-[10px] font-mono text-slate-600 font-semibold uppercase">Jarak Jangkauan (R)</div>
+            <div className="text-lg font-bold font-mono text-blue-700 font-bold mt-0.5">{metrics.maxRange} m</div>
           </div>
           <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-[10px] font-mono text-slate-500 uppercase">Ketinggian Maks (H)</div>
-            <div className="text-lg font-bold font-mono text-indigo-400 mt-0.5">{metrics.maxHeight} m</div>
+            <div className="text-[10px] font-mono text-slate-600 font-semibold uppercase">Ketinggian Maks (H)</div>
+            <div className="text-lg font-bold font-mono text-indigo-700 font-bold mt-0.5">{metrics.maxHeight} m</div>
           </div>
           <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-[10px] font-mono text-slate-500 uppercase">Waktu Terbang (t)</div>
-            <div className="text-lg font-bold font-mono text-emerald-400 mt-0.5">{metrics.flightTime} s</div>
+            <div className="text-[10px] font-mono text-slate-600 font-semibold uppercase">Waktu Terbang (t)</div>
+            <div className="text-lg font-bold font-mono text-emerald-700 font-bold mt-0.5">{metrics.flightTime} s</div>
           </div>
           <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-[10px] font-mono text-slate-500 uppercase">Kecepatan Benturan</div>
-            <div className="text-lg font-bold font-mono text-rose-400 mt-0.5">{metrics.impactSpeed} m/s</div>
+            <div className="text-[10px] font-mono text-slate-600 font-semibold uppercase">Kecepatan Benturan</div>
+            <div className="text-lg font-bold font-mono text-rose-700 font-bold mt-0.5">{metrics.impactSpeed} m/s</div>
           </div>
         </div>
       </div>
@@ -294,7 +294,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
       <div className="lg:col-span-4 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col justify-between shadow-sm">
         <div className="space-y-4">
           <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
-            <Gauge className="w-4 h-4 text-blue-600" />
+            <Gauge className="w-4 h-4 text-blue-700 font-bold" />
             <h4 className="font-bold text-xs uppercase tracking-wider text-slate-800 font-mono">
               Parameter Eksperimen Fisika
             </h4>
@@ -304,7 +304,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
           <div>
             <div className="flex justify-between text-xs mb-1">
               <span className="text-slate-500">Kecepatan Awal (v₀)</span>
-              <span className="font-mono text-blue-600 font-bold">{params.velocity} m/s</span>
+              <span className="font-mono text-blue-700 font-bold font-bold">{params.velocity} m/s</span>
             </div>
             <input
               type="range"
@@ -319,7 +319,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
           <div>
             <div className="flex justify-between text-xs mb-1">
               <span className="text-slate-500">Sudut Elevasi (θ)</span>
-              <span className="font-mono text-indigo-400 font-bold">{params.angle}&deg;</span>
+              <span className="font-mono text-indigo-700 font-bold font-bold">{params.angle}&deg;</span>
             </div>
             <input
               type="range"
@@ -334,7 +334,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
           <div>
             <div className="flex justify-between text-xs mb-1">
               <span className="text-slate-500">Koefisien Hambatan Udara (C_d)</span>
-              <span className="font-mono text-emerald-400 font-bold">{params.dragCoeff}</span>
+              <span className="font-mono text-emerald-700 font-bold font-bold">{params.dragCoeff}</span>
             </div>
             <input
               type="range"
@@ -350,7 +350,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
           <div>
             <div className="flex justify-between text-xs mb-1">
               <span className="text-slate-500">Massa Proyektil (m)</span>
-              <span className="font-mono text-amber-400 font-bold">{params.mass} kg</span>
+              <span className="font-mono text-amber-800 font-bold font-bold">{params.mass} kg</span>
             </div>
             <input
               type="range"
@@ -366,7 +366,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
           <div>
             <div className="flex justify-between text-xs mb-1">
               <span className="text-slate-500">Derau Sensor Riil (Noise Jitter)</span>
-              <span className="font-mono text-purple-400 font-bold">&plusmn;{params.noisePercent}%</span>
+              <span className="font-mono text-purple-700 font-bold font-bold">&plusmn;{params.noisePercent}%</span>
             </div>
             <input
               type="range"
@@ -382,7 +382,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
 
         {/* VeriLab Integration Banner */}
         <div className="mt-4 p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
-          <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-bold font-mono">
+          <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-bold font-bold font-mono">
             <Zap className="w-3.5 h-3.5" />
             Sinergi VeriLab AI Metrology
           </div>
