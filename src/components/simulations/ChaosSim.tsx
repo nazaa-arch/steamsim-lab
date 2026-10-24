@@ -74,7 +74,7 @@ export const ChaosSim: React.FC = () => {
       ctx.lineWidth = 1.5;
       for (let i = 1; i < trail.length; i++) {
         const alpha = (i / trail.length) * 0.9;
-        ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+        ctx.strokeStyle = `rgba(37, 99, 235, ${alpha})`;
         ctx.beginPath();
         ctx.moveTo(trail[i - 1].x, trail[i - 1].y);
         ctx.lineTo(trail[i].x, trail[i].y);
@@ -82,7 +82,7 @@ export const ChaosSim: React.FC = () => {
       }
 
       // Rod 1
-      ctx.strokeStyle = '#e2e8f0';
+      ctx.strokeStyle = '#334155';
       ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(originX, originY);
@@ -131,16 +131,16 @@ export const ChaosSim: React.FC = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
       {/* Simulation Viewport */}
-      <div className="lg:col-span-8 bg-slate-900/60 rounded-2xl border border-slate-800 p-5 flex flex-col shadow-xl">
+      <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <Orbit className="w-4 h-4 text-cyan-400" />
-            <h3 className="font-bold text-sm text-white">Bandul Ganda Kaotik (Double Pendulum Chaos Theory)</h3>
+            <Orbit className="w-4 h-4 text-blue-600" />
+            <h3 className="font-bold text-sm text-slate-900">Bandul Ganda Kaotik (Double Pendulum Chaos Theory)</h3>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsRunning(!isRunning)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-all shadow-md active:scale-95 cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-slate-900 font-bold text-xs transition-all shadow-md active:scale-95 cursor-pointer"
             >
               <Play className="w-3 h-3" />
               <span>{isRunning ? 'Jeda Simulasi' : 'Jalankan'}</span>
@@ -153,7 +153,7 @@ export const ChaosSim: React.FC = () => {
                   theta2: (Math.random() - 0.5) * Math.PI * 1.5
                 });
               }}
-              className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono flex items-center gap-1 cursor-pointer"
+              className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-slate-600 text-xs font-mono flex items-center gap-1 cursor-pointer"
               title="Acak Posisi Awal"
             >
               <Shuffle className="w-3.5 h-3.5" />
@@ -170,7 +170,7 @@ export const ChaosSim: React.FC = () => {
                   theta2: Math.PI / 2
                 });
               }}
-              className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300"
+              className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-slate-600"
               title="Reset"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -179,7 +179,7 @@ export const ChaosSim: React.FC = () => {
         </div>
 
         {/* Canvas */}
-        <div className="flex-1 w-full bg-slate-950/90 rounded-xl border border-slate-800 overflow-hidden relative min-h-[340px]">
+        <div className="flex-1 w-full bg-white rounded-xl border border-slate-200 overflow-hidden relative min-h-[340px]">
           <canvas
             ref={canvasRef}
             width={720}
@@ -190,39 +190,39 @@ export const ChaosSim: React.FC = () => {
 
         {/* Metrics */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Derajat Kebebasan</div>
-            <div className="text-lg font-bold font-mono text-cyan-400 mt-0.5">2 DOF (&theta;₁, &theta;₂)</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Derajat Kebebasan</div>
+            <div className="text-lg font-bold font-mono text-blue-600 mt-0.5">2 DOF (&theta;₁, &theta;₂)</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Sifat Sistem</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Sifat Sistem</div>
             <div className="text-lg font-bold font-mono text-rose-400 mt-0.5">Non-Linear / Kaotik</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Eksponen Lyapunov</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Eksponen Lyapunov</div>
             <div className="text-lg font-bold font-mono text-emerald-400 mt-0.5">&lambda; &gt; 0</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Integritas Energi</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Integritas Energi</div>
             <div className="text-xs font-bold font-mono text-amber-400 mt-1">Konservatif (Lagrangian)</div>
           </div>
         </div>
       </div>
 
       {/* Sliders */}
-      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-800 p-5 flex flex-col justify-between shadow-xl">
+      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-xl">
         <div className="space-y-4">
-          <div className="flex items-center gap-2 pb-3 border-b border-slate-800">
-            <Orbit className="w-4 h-4 text-cyan-400" />
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-200 font-mono">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
+            <Orbit className="w-4 h-4 text-blue-600" />
+            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-800 font-mono">
               Parameter Bandul Ganda
             </h4>
           </div>
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Panjang Lengan 1 (L₁)</span>
-              <span className="font-mono text-cyan-400 font-bold">{params.l1} px</span>
+              <span className="text-slate-500">Panjang Lengan 1 (L₁)</span>
+              <span className="font-mono text-blue-600 font-bold">{params.l1} px</span>
             </div>
             <input
               type="range"
@@ -230,13 +230,13 @@ export const ChaosSim: React.FC = () => {
               max="150"
               value={params.l1}
               onChange={(e) => setParams({ ...params, l1: parseFloat(e.target.value) })}
-              className="w-full accent-cyan-500 cursor-pointer"
+              className="w-full accent-blue-600 cursor-pointer"
             />
           </div>
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Panjang Lengan 2 (L₂)</span>
+              <span className="text-slate-500">Panjang Lengan 2 (L₂)</span>
               <span className="font-mono text-indigo-400 font-bold">{params.l2} px</span>
             </div>
             <input
@@ -251,7 +251,7 @@ export const ChaosSim: React.FC = () => {
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Massa Beban 1 (M₁)</span>
+              <span className="text-slate-500">Massa Beban 1 (M₁)</span>
               <span className="font-mono text-purple-400 font-bold">{params.m1} kg</span>
             </div>
             <input
@@ -266,7 +266,7 @@ export const ChaosSim: React.FC = () => {
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Massa Beban 2 (M₂)</span>
+              <span className="text-slate-500">Massa Beban 2 (M₂)</span>
               <span className="font-mono text-rose-400 font-bold">{params.m2} kg</span>
             </div>
             <input
@@ -280,8 +280,8 @@ export const ChaosSim: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5 text-xs text-slate-400">
-          <div className="font-mono text-slate-200 font-semibold text-[11px]">Butterfly Effect:</div>
+        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-200 space-y-1.5 text-xs text-slate-500">
+          <div className="font-mono text-slate-800 font-semibold text-[11px]">Butterfly Effect:</div>
           <p className="text-[11px] leading-relaxed">
             Perubahan sekecil 0.001 radian pada posisi awal akan menghasilkan trajektori akhir yang sama sekali berbeda dalam beberapa detik.
           </p>

@@ -87,7 +87,7 @@ export const TitrationSim: React.FC = () => {
     const plotH = h - marginBottom - 20;
 
     // Grid lines
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = '#f1f5f9';
     ctx.lineWidth = 1;
     for (let ph = 0; ph <= 14; ph += 2) {
       const y = h - marginBottom - (ph / 14) * plotH;
@@ -122,7 +122,7 @@ export const TitrationSim: React.FC = () => {
     ctx.fillRect(marginLeft, y100, plotW, y82 - y100);
 
     // Compute and plot full titration curve
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = '#2563eb';
     ctx.lineWidth = 3;
     ctx.beginPath();
     for (let vb = 0; vb <= 50; vb += 0.2) {
@@ -171,16 +171,16 @@ export const TitrationSim: React.FC = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
       {/* Simulation Viewport */}
-      <div className="lg:col-span-8 bg-slate-900/60 rounded-2xl border border-slate-800 p-5 flex flex-col shadow-xl">
+      <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <FlaskConical className="w-4 h-4 text-cyan-400" />
-            <h3 className="font-bold text-sm text-white">Kurva Titrasi Asam-Basa Kuantitatif &amp; Buffer Kapasitas</h3>
+            <FlaskConical className="w-4 h-4 text-blue-600" />
+            <h3 className="font-bold text-sm text-slate-900">Kurva Titrasi Asam-Basa Kuantitatif &amp; Buffer Kapasitas</h3>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setAddedBase(25.0)}
-              className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono flex items-center gap-1"
+              className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-slate-600 text-xs font-mono flex items-center gap-1"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Titik Ekuivalen</span>
@@ -191,7 +191,7 @@ export const TitrationSim: React.FC = () => {
         {/* Canvas & Visual Beaker Split */}
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 flex-1">
           {/* Curve Canvas (9 cols) */}
-          <div className="sm:col-span-9 bg-slate-950/90 rounded-xl border border-slate-800 overflow-hidden relative min-h-[300px]">
+          <div className="sm:col-span-9 bg-white rounded-xl border border-slate-200 overflow-hidden relative min-h-[300px]">
             <canvas
               ref={canvasRef}
               width={540}
@@ -204,10 +204,10 @@ export const TitrationSim: React.FC = () => {
           </div>
 
           {/* Visual Beaker Container (3 cols) */}
-          <div className="sm:col-span-3 bg-slate-950/70 rounded-xl border border-slate-800 p-4 flex flex-col items-center justify-between">
+          <div className="sm:col-span-3 bg-slate-950/70 rounded-xl border border-slate-200 p-4 flex flex-col items-center justify-between">
             <div className="text-center">
-              <span className="text-[10px] font-mono text-slate-400 uppercase">Warna Larutan</span>
-              <div className="text-xl font-black font-mono text-white mt-1">pH {currentPH}</div>
+              <span className="text-[10px] font-mono text-slate-500 uppercase">Warna Larutan</span>
+              <div className="text-xl font-black font-mono text-slate-900 mt-1">pH {currentPH}</div>
             </div>
 
             {/* Beaker Flask SVG Simulation */}
@@ -222,7 +222,7 @@ export const TitrationSim: React.FC = () => {
               <div className="absolute -top-1 w-12 h-10 border-t-2 border-x-2 border-slate-400 rounded-t" />
             </div>
 
-            <div className="text-[10px] text-center text-slate-400 font-mono">
+            <div className="text-[10px] text-center text-slate-500 font-mono">
               Indikator: <strong className="text-pink-400">Phenolphthalein</strong>
             </div>
           </div>
@@ -230,20 +230,20 @@ export const TitrationSim: React.FC = () => {
 
         {/* Metrics Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Volume Basa Ditambahkan</div>
-            <div className="text-lg font-bold font-mono text-cyan-400 mt-0.5">{addedBase} mL</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Volume Basa Ditambahkan</div>
+            <div className="text-lg font-bold font-mono text-blue-600 mt-0.5">{addedBase} mL</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Titik Ekuivalen (V_eq)</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Titik Ekuivalen (V_eq)</div>
             <div className="text-lg font-bold font-mono text-amber-400 mt-0.5">{vEq} mL</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">pH Saat Ini</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">pH Saat Ini</div>
             <div className="text-lg font-bold font-mono text-pink-400 mt-0.5">{currentPH}</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Status Titrasi</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Status Titrasi</div>
             <div className="text-xs font-bold font-mono text-emerald-400 mt-1">
               {addedBase < vEq ? 'Pra-Ekuivalen' : addedBase === vEq ? 'TITIK EKUIVALEN' : 'Pasca-Ekuivalen'}
             </div>
@@ -252,24 +252,24 @@ export const TitrationSim: React.FC = () => {
       </div>
 
       {/* Sliders & Controls */}
-      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-800 p-5 flex flex-col justify-between shadow-xl">
+      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-xl">
         <div className="space-y-4">
-          <div className="flex items-center gap-2 pb-3 border-b border-slate-800">
-            <Beaker className="w-4 h-4 text-cyan-400" />
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-200 font-mono">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
+            <Beaker className="w-4 h-4 text-blue-600" />
+            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-800 font-mono">
               Parameter Titrasi Kimia
             </h4>
           </div>
 
           <div>
-            <label className="text-xs text-slate-400 mb-1 block">Jenis Asam yang Dianalisis</label>
+            <label className="text-xs text-slate-500 mb-1 block">Jenis Asam yang Dianalisis</label>
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => setParams({ ...params, acidType: 'weak', pKa: 4.76 })}
                 className={`py-2 rounded-xl text-xs font-bold transition-all ${
                   params.acidType === 'weak'
-                    ? 'bg-cyan-600 text-white shadow'
-                    : 'bg-slate-800 text-slate-400 hover:text-white'
+                    ? 'bg-cyan-600 text-slate-900 shadow'
+                    : 'bg-slate-800 text-slate-500 hover:text-slate-900'
                 }`}
               >
                 Asam Lemah (CH₃COOH)
@@ -278,8 +278,8 @@ export const TitrationSim: React.FC = () => {
                 onClick={() => setParams({ ...params, acidType: 'strong' })}
                 className={`py-2 rounded-xl text-xs font-bold transition-all ${
                   params.acidType === 'strong'
-                    ? 'bg-cyan-600 text-white shadow'
-                    : 'bg-slate-800 text-slate-400 hover:text-white'
+                    ? 'bg-cyan-600 text-slate-900 shadow'
+                    : 'bg-slate-800 text-slate-500 hover:text-slate-900'
                 }`}
               >
                 Asam Kuat (HCl)
@@ -290,8 +290,8 @@ export const TitrationSim: React.FC = () => {
           {/* Slider for Adding Titrant NaOH */}
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-300 font-semibold">Teteskan Titran NaOH (0 - 50 mL)</span>
-              <span className="font-mono text-cyan-400 font-bold">{addedBase} mL</span>
+              <span className="text-slate-600 font-semibold">Teteskan Titran NaOH (0 - 50 mL)</span>
+              <span className="font-mono text-blue-600 font-bold">{addedBase} mL</span>
             </div>
             <input
               type="range"
@@ -300,13 +300,13 @@ export const TitrationSim: React.FC = () => {
               step="0.5"
               value={addedBase}
               onChange={(e) => setAddedBase(parseFloat(e.target.value))}
-              className="w-full accent-cyan-500 cursor-pointer"
+              className="w-full accent-blue-600 cursor-pointer"
             />
           </div>
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Konsentrasi Titran NaOH (M)</span>
+              <span className="text-slate-500">Konsentrasi Titran NaOH (M)</span>
               <span className="font-mono text-emerald-400 font-bold">{params.baseConc} M</span>
             </div>
             <input
@@ -322,7 +322,7 @@ export const TitrationSim: React.FC = () => {
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Volume Sampel Asam (V_a)</span>
+              <span className="text-slate-500">Volume Sampel Asam (V_a)</span>
               <span className="font-mono text-indigo-400 font-bold">{params.acidVol} mL</span>
             </div>
             <input
@@ -337,12 +337,12 @@ export const TitrationSim: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5 text-xs">
+        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-200 space-y-1.5 text-xs">
           <div className="flex items-center gap-1.5 text-emerald-400 font-mono font-bold text-[11px]">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Persamaan Henderson-Hasselbalch:
           </div>
-          <div className="p-2 rounded bg-slate-900 border border-slate-800 font-mono text-[11px] text-cyan-300 text-center">
+          <div className="p-2 rounded bg-slate-900 border border-slate-200 font-mono text-[11px] text-cyan-300 text-center">
             pH = pKa + log([A⁻] / [HA])
           </div>
         </div>

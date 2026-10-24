@@ -108,7 +108,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
     ctx.clearRect(0, 0, width, height);
 
     // Coordinate grid
-    ctx.strokeStyle = '#1e293b';
+    ctx.strokeStyle = '#f1f5f9';
     ctx.lineWidth = 1;
     const step = 40;
     for (let x = 0; x < width; x += step) {
@@ -126,7 +126,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
 
     // Ground line
     const groundY = height - 40;
-    ctx.strokeStyle = '#06b6d4';
+    ctx.strokeStyle = '#2563eb';
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(0, groundY);
@@ -155,14 +155,14 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
       ctx.lineTo(30 + pts[drawLimit - 1].x * scaleX, groundY);
       ctx.closePath();
       const grad = ctx.createLinearGradient(0, 0, 0, groundY);
-      grad.addColorStop(0, 'rgba(6, 182, 212, 0.25)');
-      grad.addColorStop(1, 'rgba(6, 182, 212, 0.0)');
+      grad.addColorStop(0, 'rgba(37, 99, 235, 0.15)');
+      grad.addColorStop(1, 'rgba(37, 99, 235, 0.0)');
       ctx.fillStyle = grad;
       ctx.fill();
 
       // Trajectory curve
       ctx.beginPath();
-      ctx.strokeStyle = '#06b6d4';
+      ctx.strokeStyle = '#2563eb';
       ctx.lineWidth = 3;
       for (let i = 0; i < drawLimit; i++) {
         const px = 30 + pts[i].x * scaleX;
@@ -199,7 +199,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
     ctx.beginPath();
     ctx.moveTo(30, groundY);
     ctx.lineTo(30 + Math.cos(rad) * 35, groundY - Math.sin(rad) * 35);
-    ctx.strokeStyle = '#e2e8f0';
+    ctx.strokeStyle = '#334155';
     ctx.lineWidth = 4;
     ctx.stroke();
   }, [params, animProgress, currentResult]);
@@ -228,17 +228,17 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
       {/* Simulation Viewport (Canvas) */}
-      <div className="lg:col-span-8 bg-slate-900/60 rounded-2xl border border-slate-800 p-5 flex flex-col shadow-xl">
+      <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col shadow-sm">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <Compass className="w-4 h-4 text-cyan-400" />
-            <h3 className="font-bold text-sm text-white">Trajektori Gerak Proyektil (Aerodinamika Kuadratik)</h3>
+            <Compass className="w-4 h-4 text-blue-600" />
+            <h3 className="font-bold text-sm text-slate-900">Trajektori Gerak Proyektil (Aerodinamika Kuadratik)</h3>
           </div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsRunning(true)}
               disabled={isRunning}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition-all shadow-md active:scale-95 disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-slate-900 font-bold text-xs transition-all shadow-md active:scale-95 disabled:opacity-50"
             >
               <Play className="w-3 h-3" />
               <span>Tembakkan Proyektil</span>
@@ -248,7 +248,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
                 setAnimProgress(1.0);
                 setIsRunning(false);
               }}
-              className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300"
+              className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-slate-600"
               title="Reset"
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -257,45 +257,45 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
         </div>
 
         {/* Canvas container */}
-        <div className="flex-1 w-full bg-slate-950/90 rounded-xl border border-slate-800 overflow-hidden relative min-h-[340px]">
+        <div className="flex-1 w-full bg-white rounded-xl border border-slate-200 overflow-hidden relative min-h-[340px]">
           <canvas
             ref={canvasRef}
             width={720}
             height={360}
             className="w-full h-full block"
           />
-          <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-800 font-mono text-[11px] text-slate-300">
+          <div className="absolute top-3 left-3 bg-slate-50/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200 font-mono text-[11px] text-slate-700">
             F<sub>drag</sub> = &frac12; &rho; C<sub>d</sub> A v<sup>2</sup>
           </div>
         </div>
 
         {/* Real-time Computed Metrics Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Jarak Jangkauan (R)</div>
-            <div className="text-lg font-bold font-mono text-cyan-400 mt-0.5">{metrics.maxRange} m</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Jarak Jangkauan (R)</div>
+            <div className="text-lg font-bold font-mono text-blue-600 mt-0.5">{metrics.maxRange} m</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Ketinggian Maks (H)</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Ketinggian Maks (H)</div>
             <div className="text-lg font-bold font-mono text-indigo-400 mt-0.5">{metrics.maxHeight} m</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Waktu Terbang (t)</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Waktu Terbang (t)</div>
             <div className="text-lg font-bold font-mono text-emerald-400 mt-0.5">{metrics.flightTime} s</div>
           </div>
-          <div className="p-3 rounded-xl bg-slate-950/60 border border-slate-800">
-            <div className="text-[10px] font-mono text-slate-400 uppercase">Kecepatan Benturan</div>
+          <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="text-[10px] font-mono text-slate-500 uppercase">Kecepatan Benturan</div>
             <div className="text-lg font-bold font-mono text-rose-400 mt-0.5">{metrics.impactSpeed} m/s</div>
           </div>
         </div>
       </div>
 
       {/* Control Panel (Sidebar) */}
-      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-800 p-5 flex flex-col justify-between shadow-xl">
+      <div className="lg:col-span-4 bg-slate-900/60 rounded-2xl border border-slate-200 p-5 flex flex-col justify-between shadow-xl">
         <div className="space-y-4">
-          <div className="flex items-center gap-2 pb-3 border-b border-slate-800">
-            <Gauge className="w-4 h-4 text-cyan-400" />
-            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-200 font-mono">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
+            <Gauge className="w-4 h-4 text-blue-600" />
+            <h4 className="font-bold text-xs uppercase tracking-wider text-slate-800 font-mono">
               Parameter Eksperimen Fisika
             </h4>
           </div>
@@ -303,8 +303,8 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
           {/* Sliders */}
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Kecepatan Awal (v₀)</span>
-              <span className="font-mono text-cyan-400 font-bold">{params.velocity} m/s</span>
+              <span className="text-slate-500">Kecepatan Awal (v₀)</span>
+              <span className="font-mono text-blue-600 font-bold">{params.velocity} m/s</span>
             </div>
             <input
               type="range"
@@ -312,13 +312,13 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
               max="90"
               value={params.velocity}
               onChange={(e) => setParams({ ...params, velocity: parseFloat(e.target.value) })}
-              className="w-full accent-cyan-500 cursor-pointer"
+              className="w-full accent-blue-600 cursor-pointer"
             />
           </div>
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Sudut Elevasi (θ)</span>
+              <span className="text-slate-500">Sudut Elevasi (θ)</span>
               <span className="font-mono text-indigo-400 font-bold">{params.angle}&deg;</span>
             </div>
             <input
@@ -333,7 +333,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Koefisien Hambatan Udara (C_d)</span>
+              <span className="text-slate-500">Koefisien Hambatan Udara (C_d)</span>
               <span className="font-mono text-emerald-400 font-bold">{params.dragCoeff}</span>
             </div>
             <input
@@ -349,7 +349,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Massa Proyektil (m)</span>
+              <span className="text-slate-500">Massa Proyektil (m)</span>
               <span className="font-mono text-amber-400 font-bold">{params.mass} kg</span>
             </div>
             <input
@@ -365,7 +365,7 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
 
           <div>
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-slate-400">Derau Sensor Riil (Noise Jitter)</span>
+              <span className="text-slate-500">Derau Sensor Riil (Noise Jitter)</span>
               <span className="font-mono text-purple-400 font-bold">&plusmn;{params.noisePercent}%</span>
             </div>
             <input
@@ -381,12 +381,12 @@ export const BallisticSim: React.FC<BallisticSimProps> = ({ onDataGenerated }) =
         </div>
 
         {/* VeriLab Integration Banner */}
-        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+        <div className="mt-4 p-3 rounded-xl bg-slate-950/80 border border-slate-200 space-y-1.5">
           <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-bold font-mono">
             <Zap className="w-3.5 h-3.5" />
             Sinergi VeriLab AI Metrology
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">
+          <p className="text-[11px] text-slate-500 leading-relaxed">
             Data trajektori berderau ini merepresentasikan pembacaan sensor radar/LiDAR. Ekspor data dapat diuji kurva regresi GPR-nya di VeriLab Engine.
           </p>
         </div>

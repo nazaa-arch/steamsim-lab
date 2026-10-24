@@ -46,13 +46,13 @@ export const VeriLabExportModal: React.FC<VeriLabExportModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-6 relative shadow-2xl space-y-4">
+    <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="bg-white border border-slate-200 rounded-2xl max-w-xl w-full p-6 relative shadow-xl space-y-4 text-slate-800">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors"
+          className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 p-1 rounded-lg hover:bg-slate-100 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
@@ -63,20 +63,20 @@ export const VeriLabExportModal: React.FC<VeriLabExportModalProps> = ({
             <Download className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-white">Ekspor Data Telemetri &amp; Sensor Fisik</h3>
-            <p className="text-xs text-slate-400">Format CSV Siap Uji Kalibrasi Metrologi di VeriLab AI</p>
+            <h3 className="text-base font-bold text-slate-900">Ekspor Data Telemetri &amp; Sensor Fisik</h3>
+            <p className="text-xs text-slate-500">Format CSV Siap Uji Kalibrasi Metrologi di VeriLab AI</p>
           </div>
         </div>
 
         {/* Preview Container */}
         <div className="space-y-2">
-          <div className="flex items-center justify-between text-xs text-slate-400">
+          <div className="flex items-center justify-between text-xs text-slate-500">
             <span>Pratinjau Data Sensor ({dataset.length} Sampel Titik Waktu):</span>
             <span className="font-mono text-cyan-400 text-[11px]">&Delta;t = 0.01 detik</span>
           </div>
 
-          <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 max-h-48 overflow-y-auto space-y-1">
-            <div className="text-slate-500 pb-1 border-b border-slate-800 flex justify-between">
+          <div className="bg-slate-950 p-3 rounded-xl border border-slate-200 font-mono text-xs text-slate-300 max-h-48 overflow-y-auto space-y-1">
+            <div className="text-slate-500 pb-1 border-b border-slate-200 flex justify-between">
               <span>t (s)</span>
               <span>X (m)</span>
               <span>Y (m)</span>
@@ -121,7 +121,7 @@ export const VeriLabExportModal: React.FC<VeriLabExportModalProps> = ({
 
             <button
               onClick={downloadCSV}
-              className="flex-1 sm:flex-initial px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-500 hover:from-cyan-500 hover:to-teal-400 text-white font-bold text-xs transition-all shadow-md active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
+              className="flex-1 sm:flex-initial px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-500 hover:from-cyan-500 hover:to-teal-400 text-slate-900 font-bold text-xs transition-all shadow-md active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Unduh CSV</span>
